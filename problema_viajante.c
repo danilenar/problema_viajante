@@ -1,18 +1,21 @@
 #include <stdio.h>
 int main() {
-  /*ingreso numero de vertices*/
   int v = 0;
+  int e = 0;
+  int matriz[e][v];
+  int pesos[e];
+  char validar;
+
+  while (validar!="y"){
+  /*ingreso numero de vertices*/
   printf("ingrese numero de vertices: ");
   scanf("%d", &v);
 
   /*ingreso numero de aristas*/
-  int e = 0;
   printf("ingrese numero de aristas: ");
   scanf("%d", &e);
 
-
-  int matriz[e][v];
-  int pesos[e];
+  //ingreso datos matriz
   for (int i = 0; i < e ; i++) {
     for (int j = 0; j < v; j++) {
       printf("v%de%d: ", i+1, j+1);
@@ -21,7 +24,9 @@ int main() {
     printf("P(e%d): ", i+1);
     scanf("%d", &pesos[i]);
   }
-  //
+
+
+  //RECUADRO MUESTREO DE DATOS DE matriz
   // // encabezado de la matriz
   // //esquina superior izquierda
   // printf("\n\u2554");
@@ -50,6 +55,8 @@ int main() {
   //   }
   // }
   //
+
+  // MUESTREO de datos de matriz
   printf("\n   ");
   for (int i = 0; i < v ; i++) {
       printf("v%d ", i+1);
@@ -64,6 +71,8 @@ int main() {
     }
     printf("%d", pesos[i]);
   }
-  printf("\n");
+  printf("\nConfirmar datos (y/n): ");
+  scanf("%s\n", &validar);
+  }
   return 0;
 }
