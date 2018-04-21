@@ -1,12 +1,14 @@
 #include <stdio.h>
+#include <string.h>
+
 int main() {
   int v = 0;
   int e = 0;
-  int matriz[e][v];
+  int matriz[v][e];
   int pesos[e];
-  char validar;
+  char validar[1];
 
-  while (validar!="y"){
+  while ( strcmp( validar, "y" ) != 0  ){
   /*ingreso numero de vertices*/
   printf("ingrese numero de vertices: ");
   scanf("%d", &v);
@@ -18,8 +20,8 @@ int main() {
   //ingreso datos matriz
   for (int i = 0; i < e ; i++) {
     for (int j = 0; j < v; j++) {
-      printf("v%de%d: ", i+1, j+1);
-      scanf("%d", &matriz[i][j]);
+      printf("v%de%d: ", j+1 , i+1 );
+      scanf("%d", &matriz[j][i]);
     }
     printf("P(e%d): ", i+1);
     scanf("%d", &pesos[i]);
@@ -58,21 +60,24 @@ int main() {
 
   // MUESTREO de datos de matriz
   printf("\n   ");
-  for (int i = 0; i < v ; i++) {
-      printf("v%d ", i+1);
+  for (int i = 0; i < e ; i++) {
+      printf("e%d ", i+1);
   }
-  printf("P()");
 
-  for (int i = 0; i < e; i++) {
+  for (int i = 0; i < v ; i++) {
     printf("\n");
-    printf("e%d ", i+1);
-    for (int j = 0; j < v; j++) {
+    printf("v%d ", i+1);
+    for (int j = 0; j < e; j++) {
       printf("%d  ", matriz[i][j]);
     }
-    printf("%d", pesos[i]);
+  }
+  printf("\nP()");
+  for (int i = 0; i < e ; i++) {
+    printf("%d  ", pesos[i]);
   }
   printf("\nConfirmar datos (y/n): ");
   scanf("%s\n", &validar);
   }
+  printf("calculo\n");
   return 0;
 }
